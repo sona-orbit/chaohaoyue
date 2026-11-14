@@ -36,7 +36,8 @@ header.site .wrap { display: flex; align-items: center; gap: 1rem; padding-block
 .brand svg { width: 1.2rem; height: 1.2rem; }
 nav.top { margin-left: auto; display: flex; gap: 1.25rem; font-size: .9375rem; }
 nav.top a { color: var(--ink-2); text-decoration: none; white-space: nowrap; }
-nav.top a:hover { color: var(--ink); }
+nav.top a:hover, nav.top a[aria-current] { color: var(--ink); }
+nav.top a[aria-current] { font-weight: 700; box-shadow: 0 2px 0 var(--accent); }
 
 .hero { background: linear-gradient(180deg, var(--bg-soft), var(--bg)); }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 2.5rem; align-items: center; padding-block: 3.5rem 3rem; }
@@ -122,6 +123,48 @@ ul.limits li { margin-top: .35rem; }
 .page p { margin-top: .9rem; }
 .page ul { padding-left: 1.2rem; }
 
+/* 功能頁 */
+.hero.sub .wrap { padding-block: 3rem 2.5rem; }
+.hero.sub.solo .wrap { grid-template-columns: minmax(0, 1fr); }
+.hero.sub h1 { font-size: clamp(1.75rem, 1.2rem + 2.3vw, 2.6rem); }
+.hero.sub.solo .sub { max-width: 44em; }
+section.block.tight { padding-block: 0 3rem; }
+.feat { display: grid; gap: 1rem; margin-top: 1.75rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.feat.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.txt.lead + ul.limits { margin-top: 1.5rem; font-size: 1rem; max-width: 50rem; }
+ul.limits li { line-height: 1.7; }
+.tag { display: inline-block; vertical-align: middle; font-size: .75rem; font-weight: 700; padding: .1rem .55rem; border-radius: 999px; white-space: nowrap; }
+.tag.soon { background: var(--warn-bg); color: var(--warn); }
+table.rules.three tbody th { width: 22%; }
+table.rules.three td { width: 39%; }
+.pager { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.pager .pg { display: block; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; background: var(--surface); }
+.pager .pg.next { text-align: right; }
+.pager small { display: block; color: var(--ink-2); font-size: .875rem; }
+.pager b { color: var(--ink); font-size: 1.125rem; }
+
+/* 首頁：系統的六個部分 */
+.parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.75rem; }
+a.part { display: flex; flex-direction: column; padding: 1.3rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+a.part.hot { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+a.part h3 { font-size: 1.1875rem; }
+a.part p { color: var(--ink-2); font-size: .9375rem; margin-top: .4rem; }
+a.part ul { margin: .8rem 0 1rem; padding-left: 1.1rem; font-size: .9375rem; color: var(--ink-2); }
+a.part li { margin-top: .2rem; }
+a.part .go { margin-top: auto; color: var(--accent-ink); font-weight: 700; font-size: .9375rem; }
+
+/* HIS 串接的架構圖 */
+.arch { margin-top: 1.75rem; display: grid; gap: .5rem; max-width: 52rem; margin-inline: auto; }
+.arch .node { border-radius: 1rem; padding: .9rem 1.1rem; text-align: center; border: 1px solid var(--line); background: var(--surface); }
+.arch .node b { display: block; font-size: 1.0625rem; }
+.arch .node span { color: var(--ink-2); font-size: .9375rem; }
+.arch .node.n1 { background: var(--sky); border-color: transparent; width: min(22rem, 100%); margin-inline: auto; }
+.arch .node.n2 { background: var(--mint); border-color: transparent; }
+.arch .node.n3 { border: 2px solid var(--accent); }
+.arch .node.n4.hot { background: var(--sand); border-color: transparent; }
+.arch .link { text-align: center; color: var(--ink-2); font-size: .875rem; }
+.arch .row4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; }
+
 /* 文章 */
 .blog .meta { font-size: .875rem; margin-top: 0; }
 .blog .intro { font-size: 1.125rem; color: var(--ink); }
@@ -203,7 +246,11 @@ table.rules td { color: var(--ink-2); }
 .shot.crop img { width: 100%; aspect-ratio: 720 / 1040; object-fit: cover; object-position: top; }
 
 @media (max-width: 52rem) {
-  .two, .trio, .shots2 { grid-template-columns: minmax(0, 1fr); }
+  .two, .trio, .shots2, .feat, .feat.c2, .parts { grid-template-columns: minmax(0, 1fr); }
+  .arch .row4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  header.site .wrap { flex-wrap: wrap; row-gap: .35rem; }
+  nav.top { order: 3; width: 100%; margin-left: 0; overflow-x: auto; white-space: nowrap; padding-bottom: .25rem; scrollbar-width: none; }
+  table.rules.three tbody th, table.rules.three td { width: auto; }
   .stat { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
   table.rules tbody th { width: 40%; }
   table.rules th, table.rules td { padding: .7rem .75rem; }
@@ -213,7 +260,6 @@ table.rules td { color: var(--ink-2); }
   ol.steps { grid-template-columns: minmax(0, 1fr); }
   .dl { grid-template-columns: minmax(0, 1fr); }
   nav.top { gap: .8rem; font-size: .875rem; }
-  nav.top a.opt { display: none; }
   header.site .wrap { gap: .6rem; }
   .funnel .lv.l2, .funnel .lv.l3 { width: 100%; }
   table.spec th { width: 6.5em; white-space: normal; }

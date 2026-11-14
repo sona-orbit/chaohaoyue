@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="text-scale" content="scale">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f8f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121a19" media="(prefers-color-scheme: dark)">
+<title>與 HIS系統串接｜超好約</title>
+<meta name="description" content="跟診所現有的 HIS系統一起用：患者對到病歷編號、診所電腦上的接口、兩邊怎麼分工，以及正在做的部分。">
+<link rel="canonical" href="https://sona-orbit.github.io/chaohaoyue/his/">
+<meta property="og:title" content="與 HIS系統串接｜超好約">
+<meta property="og:description" content="跟診所現有的 HIS系統一起用：患者對到病歷編號、診所電腦上的接口、兩邊怎麼分工，以及正在做的部分。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sona-orbit.github.io/chaohaoyue/his/">
+<meta property="og:image" content="https://sona-orbit.github.io/chaohaoyue/assets/intro-poster.jpg">
+<link rel="icon" href="/chaohaoyue/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/chaohaoyue/assets/style.css">
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/chaohaoyue/*"},{"not":{"selector_matches":"[download],[target=_blank],.no-prerender"}}]},"eagerness":"moderate"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJGRNJFB15"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-FJGRNJFB15");</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/chaohaoyue/"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></i>超好約</a>
+  <nav class="top" aria-label="主選單"><a href="/chaohaoyue/model/">判斷模型</a><a href="/chaohaoyue/patients/">患者端</a><a href="/chaohaoyue/booking/">預約介面</a><a href="/chaohaoyue/messages/">訊息介面</a><a href="/chaohaoyue/his/" aria-current="page">HIS 串接</a><a href="/chaohaoyue/download/">下載</a></nav>
+</div></header>
+<main>
+<section class="hero sub solo"><div class="wrap">
+  <div>
+    <div class="kicker">與 HIS系統串接</div>
+    <h1><span class="nb">不用換掉 HIS，</span><span class="nb">跟現有的系統一起用</span></h1>
+    <p class="sub">超好約不碰病歷、醫令與健保申報，那些留在診所現有的 HIS系統裡。超好約管的是約診與患者在 LINE 上的身分；兩邊用病歷編號把同一位患者對起來，資料經過診所電腦上的接口互通。</p>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">架構</div>
+    <h2>HIS 跟預約介面、訊息介面，站在同一個位置</h2>
+    <p>診所的電腦上裝一個連線程式，由我們安裝。預約介面、訊息介面用它拿資料；HIS系統或診所自己寫的程式要存取約診與患者，也是打同一組接口。所以 HIS 不需要直接連到雲端，也不需要知道 LINE 的任何細節。</p>
+  </div>
+  <div class="arch" role="img" aria-label="患者的 LINE 連到超好約的雲端；雲端經過診所電腦上的連線程式，連到預約介面、訊息介面、HIS系統與診所自己的程式">
+    <div class="node n1"><b>患者的 LINE</b><span>約診、改期、取消</span></div>
+    <div class="link">⇅</div>
+    <div class="node n2"><b>超好約（雲端）</b><span>判斷模型、約診、患者資料</span></div>
+    <div class="link">⇅ 加密連線，配對過的電腦才連得上</div>
+    <div class="node n3"><b>診所電腦上的連線程式</b><span>驗證、接口、規格與測試頁</span></div>
+    <div class="link">⇅ 都在診所的電腦上</div>
+    <div class="row4">
+      <div class="node n4"><b>預約介面</b></div>
+      <div class="node n4"><b>訊息介面</b></div>
+      <div class="node n4 hot"><b>HIS系統</b></div>
+      <div class="node n4"><b>診所自己的程式</b></div>
+    </div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">現在做得到的</div>
+    <h2>患者對到病歷，接口已經在診所的電腦上</h2>
+  </div>
+  <div class="feat c3">
+    <div class="stepcard"><h3>患者對到 HIS 的病歷編號</h3><p>櫃檯在預約介面的患者頁，填這位患者在 HIS 裡的病歷編號。一個編號只會對到一位患者，重複會被擋下；填錯可以解除。</p></div>
+    <div class="stepcard"><h3>誰還沒對到，看得出來</h3><p>行事曆、約診清單、患者清單上，還沒對到病歷的患者有標示，也可以篩出來一次處理。</p></div>
+    <div class="stepcard"><h3>還沒對到的先管住</h3><p>從 LINE 註冊進來、還沒對到病歷的患者，同時只能有一筆還沒到診的約。上限由診所設定。</p></div>
+    <div class="stepcard"><h3>LINE 上對不起來的交給櫃檯</h3><p>患者在 LINE 填的資料跟診所登記的不一樣，不會自動接上；櫃檯的待處理會多一筆，寫明哪一樣對不上。</p></div>
+    <div class="stepcard"><h3>一組現成的接口</h3><p>約診、患者、班表、可以約的時間、待處理，七十多個接口。HIS 或診所自己的程式打這台電腦上的網址就好。</p></div>
+    <div class="stepcard"><h3>規格與測試頁內建</h3><p>打開連線程式的頁面，就看得到每一個接口怎麼用，可以直接試打、看回傳的內容。</p></div>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">分工</div>
+    <h2>哪些歸它，哪些歸 HIS</h2>
+  </div>
+  <div class="tablewrap"><table class="rules three">
+    <thead><tr><th>項目</th><th>超好約</th><th>HIS系統</th></tr></thead>
+    <tbody>
+    <tr><th>約診</th><td>主檔在這裡。LINE 上約的、櫃檯約的是同一份。</td><td>收一份同步過去的約診。<span class="tag soon">準備中</span></td></tr>
+    <tr><th>患者</th><td>LINE 帳號、姓名、手機、生日、約診紀錄。</td><td>病歷。兩邊用病歷編號對起來。</td></tr>
+    <tr><th>病歷、醫令、健保申報</th><td>不碰。</td><td>都在 HIS。</td></tr>
+    <tr><th>跟患者的對話</th><td>自動回覆與轉給櫃檯。</td><td>不經過 HIS。</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">正在做的</div>
+    <h2>接下來要補上的</h2>
+    <p>下面這些還沒完成，寫出來是讓你知道串接會走到哪裡。</p>
+  </div>
+  <div class="feat c2">
+    <div class="stepcard"><h3>約診的變動通知到診所端 <span class="tag soon">準備中</span></h3><p>新約診、改期、取消、新患者，即時送到診所的電腦，讓 HIS 接收。</p></div>
+    <div class="stepcard"><h3>約診同步寫進 HIS <span class="tag soon">準備中</span></h3><p>約診以這裡為主，HIS 收一份。怎麼同步要跟各家 HIS 的對外接口一起定。</p></div>
+    <div class="stepcard"><h3>HIS 取得完整的身分資料 <span class="tag soon">準備中</span></h3><p>身分證字號、手機、生日。每一次取用都留下是誰拿的紀錄。</p></div>
+    <div class="stepcard"><h3>新患者的同意書 <span class="tag soon">準備中</span></h3><p>新患者在 LINE 上填，資料交給 HIS。</p></div>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">沒有 HIS</div>
+    <h2>沒有 HIS系統的診所，也能直接用</h2>
+    <p>約診與患者都在預約介面上管理。跟 HIS 有關的標示與欄位可以整個關掉，畫面上不會出現。</p>
+  </div>
+
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">給 HIS 廠商與診所的資訊人員</div>
+    <h2>要接的話，從這裡開始</h2>
+  </div>
+  <ul class="limits">
+    <li>接口是一般的 HTTP 與 JSON，打診所電腦本機的網址，不需要另外申請金鑰；驗證由連線程式處理。</li>
+    <li>每一台電腦要先配對才連得上，可以隨時停用；診所可以開「限制來源 IP」。</li>
+    <li>建立約診的接口可以帶一個不重複的鍵，同一個請求重送不會約兩次。</li>
+    <li>要完整的接口規格，或想討論怎麼跟你們的 HIS 對接，請來信：sona.orbit.hi@gmail.com</li>
+  </ul>
+</div></section>
+<section class="block"><div class="wrap"><nav class="pager" aria-label="上一頁與下一頁"><a class="pg" href="/chaohaoyue/messages/"><small>上一頁</small><b>訊息介面</b></a><a class="pg next" href="/chaohaoyue/security/"><small>下一頁</small><b>資料與安全</b></a></nav></div></section>
+</main>
+<footer class="site"><div class="wrap">
+  <a href="/">© Sona Orbit</a><span class="grow"></span>
+  <a href="/chaohaoyue/security/">資料與安全</a><a href="/chaohaoyue/blog/">文章</a><a href="/chaohaoyue/support/">常見問題</a><a href="/chaohaoyue/privacy/">隱私權</a><a href="mailto:sona.orbit.hi@gmail.com">sona.orbit.hi@gmail.com</a>
+</div></footer>
+</body>
+</html>

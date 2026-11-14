@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="text-scale" content="scale">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f8f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121a19" media="(prefers-color-scheme: dark)">
+<title>資料與安全｜超好約</title>
+<meta name="description" content="約診與患者資料存在哪、怎麼加密、留多久；診所的電腦怎麼配對、驗證、停用。">
+<link rel="canonical" href="https://sona-orbit.github.io/chaohaoyue/security/">
+<meta property="og:title" content="資料與安全｜超好約">
+<meta property="og:description" content="約診與患者資料存在哪、怎麼加密、留多久；診所的電腦怎麼配對、驗證、停用。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sona-orbit.github.io/chaohaoyue/security/">
+<meta property="og:image" content="https://sona-orbit.github.io/chaohaoyue/assets/intro-poster.jpg">
+<link rel="icon" href="/chaohaoyue/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/chaohaoyue/assets/style.css">
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/chaohaoyue/*"},{"not":{"selector_matches":"[download],[target=_blank],.no-prerender"}}]},"eagerness":"moderate"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJGRNJFB15"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-FJGRNJFB15");</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/chaohaoyue/"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></i>超好約</a>
+  <nav class="top" aria-label="主選單"><a href="/chaohaoyue/model/">判斷模型</a><a href="/chaohaoyue/patients/">患者端</a><a href="/chaohaoyue/booking/">預約介面</a><a href="/chaohaoyue/messages/">訊息介面</a><a href="/chaohaoyue/his/">HIS 串接</a><a href="/chaohaoyue/download/">下載</a></nav>
+</div></header>
+<main>
+<section class="hero sub solo"><div class="wrap">
+  <div>
+    <div class="kicker">資料與安全</div>
+    <h1><span class="nb">資料只有一份，</span><span class="nb">放在雲端，診所的電腦上不存</span></h1>
+    <p class="sub">約診與患者資料只有一份。LINE 上約的、櫃檯在預約介面與訊息介面上看到的，是同一份；櫃檯的電腦只負責顯示。</p>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">資料</div>
+    <h2>存在哪、怎麼存、留多久</h2>
+  </div>
+  <div class="feat c3">
+    <div class="stepcard"><h3>只有一份，在雲端</h3><p>不會有「LINE 上一份、櫃檯一份」對不起來的情況。</p></div>
+    <div class="stepcard"><h3>敏感的欄位加密</h3><p>手機、身分證字號、訊息內容加密保存。要比對是不是同一個人時，用的是不可還原的雜湊。</p></div>
+    <div class="stepcard"><h3>每家診所分開</h3><p>每一家診所的患者與約診各自獨立，互不相通。同一個人在兩家診所是兩筆資料。</p></div>
+    <div class="stepcard"><h3>櫃檯的電腦不存患者資料</h3><p>預約介面與訊息介面每次都向雲端拿，關掉就沒有留在電腦上。</p></div>
+    <div class="stepcard"><h3>訊息保留 180 天</h3><p>患者傳來的訊息與自動回覆，保留 180 天，用來處理約診與讓櫃檯知道前面談了什麼。</p></div>
+    <div class="stepcard"><h3>對不起來的註冊只留遮罩</h3><p>LINE 註冊的資料對不起來時，櫃檯的待處理上只記遮罩後的手機與身分證字號，不留完整的。</p></div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">連線</div>
+    <h2>診所的電腦怎麼連上雲端</h2>
+  </div>
+  <div class="feat c2">
+    <div class="stepcard"><h3>要先配對</h3><p>連線程式由我們安裝，用一組配對碼把這台電腦綁到這家診所。沒配對過的電腦拿不到任何資料。</p></div>
+    <div class="stepcard"><h3>每一次請求都驗證</h3><p>不是連上一次就一直有效；每一次拿資料都會驗證是不是那台配對過的電腦。</p></div>
+    <div class="stepcard"><h3>可以停用</h3><p>電腦汰換、遺失，可以把那一台停用，立刻失效。</p></div>
+    <div class="stepcard"><h3>可以限制來源 IP</h3><p>診所可以開「只有診所的網路才連得上」。</p></div>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">紀錄</div>
+    <h2>誰做了什麼，查得到</h2>
+  </div>
+  <div class="feat c3">
+    <div class="stepcard"><h3>每筆約的時間軸</h3><p>建立、確認、改期、取消、到診，每個動作記下時間與操作的人或電腦。</p></div>
+    <div class="stepcard"><h3>誰把患者對到病歷</h3><p>對到 HIS 病歷編號的時間與操作者有紀錄。</p></div>
+    <div class="stepcard"><h3>轉給櫃檯的紀錄</h3><p>什麼時候轉的、為什麼轉、什麼時候接手與交還。</p></div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">不做的事</div>
+    <h2>超好約不拿患者資料做這些事</h2>
+  </div>
+  <ul class="limits">
+    <li>不賣給別人，不拿來投放廣告。</li>
+    <li>不把一家診所的資料給另一家診所看。</li>
+    <li>患者與診所之間的訊息經過 LINE；LINE 怎麼處理資料，以 LINE 的隱私權政策為準。</li>
+    <li>完整的說明在<a href="/chaohaoyue/privacy/">隱私權</a>那一頁。</li>
+  </ul>
+</div></section>
+<section class="block"><div class="wrap"><nav class="pager" aria-label="上一頁與下一頁"><a class="pg" href="/chaohaoyue/his/"><small>上一頁</small><b>HIS 串接</b></a><a class="pg next" href="/chaohaoyue/#start"><small>接下來</small><b>怎麼開始</b></a></nav></div></section>
+</main>
+<footer class="site"><div class="wrap">
+  <a href="/">© Sona Orbit</a><span class="grow"></span>
+  <a href="/chaohaoyue/security/">資料與安全</a><a href="/chaohaoyue/blog/">文章</a><a href="/chaohaoyue/support/">常見問題</a><a href="/chaohaoyue/privacy/">隱私權</a><a href="mailto:sona.orbit.hi@gmail.com">sona.orbit.hi@gmail.com</a>
+</div></footer>
+</body>
+</html>

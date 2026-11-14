@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="text-scale" content="scale">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f8f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121a19" media="(prefers-color-scheme: dark)">
+<title>判斷模型｜超好約</title>
+<meta name="description" content="判斷模型怎麼看懂一句話、什麼時候動作、什麼時候交給櫃檯，以及它看錯時的退路。">
+<link rel="canonical" href="https://sona-orbit.github.io/chaohaoyue/model/">
+<meta property="og:title" content="判斷模型｜超好約">
+<meta property="og:description" content="判斷模型怎麼看懂一句話、什麼時候動作、什麼時候交給櫃檯，以及它看錯時的退路。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sona-orbit.github.io/chaohaoyue/model/">
+<meta property="og:image" content="https://sona-orbit.github.io/chaohaoyue/assets/intro-poster.jpg">
+<link rel="icon" href="/chaohaoyue/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/chaohaoyue/assets/style.css">
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/chaohaoyue/*"},{"not":{"selector_matches":"[download],[target=_blank],.no-prerender"}}]},"eagerness":"moderate"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJGRNJFB15"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-FJGRNJFB15");</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/chaohaoyue/"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></i>超好約</a>
+  <nav class="top" aria-label="主選單"><a href="/chaohaoyue/model/" aria-current="page">判斷模型</a><a href="/chaohaoyue/patients/">患者端</a><a href="/chaohaoyue/booking/">預約介面</a><a href="/chaohaoyue/messages/">訊息介面</a><a href="/chaohaoyue/his/">HIS 串接</a><a href="/chaohaoyue/download/">下載</a></nav>
+</div></header>
+<main>
+<section class="hero sub"><div class="wrap">
+  <div>
+    <div class="kicker">判斷模型</div>
+    <h1><span class="nb">它只負責看懂，</span><span class="nb">不自己編句子</span></h1>
+    <p class="sub">超好約的中心是一個判斷模型。它是拿診所患者會說的話訓練的，只做一件事：看懂這句話要什麼。看懂之後怎麼回、下一步問什麼，是另外寫好的規則在決定，模型不參與。</p>
+  </div>
+  <div><div class="parse" role="img" aria-label="一句話被拆成：想做什麼、哪一天、哪個時段、哪位醫師、什麼項目">
+  <div class="said"><small>患者打的一句話</small>
+    <p>我想<mark class="k1">約</mark><mark class="k2">下週三</mark><mark class="k3">下午</mark>，找<mark class="k4">陳醫師</mark><mark class="k5">洗牙</mark></p></div>
+  <div class="arrow">↓ 判斷模型看懂的</div>
+  <dl class="tags">
+    <div class="k1"><dt>想做什麼</dt><dd>約診</dd></div>
+    <div class="k2"><dt>哪一天</dt><dd>下週三</dd></div>
+    <div class="k3"><dt>哪個時段</dt><dd>下午</dd></div>
+    <div class="k4"><dt>哪位醫師</dt><dd>陳醫師</dd></div>
+    <div class="k5"><dt>什麼項目</dt><dd>洗牙</dd></div>
+  </dl>
+  <div class="arrow">↓ 接下來</div>
+  <div class="next">條件都有了，列出那天下午陳醫師可以約的時間。少了哪一樣，就只問那一樣。</div>
+</div></div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">兩個步驟</div>
+    <h2>先看是不是需求，再看是哪一種</h2>
+  </div>
+  <div class="two">
+    <div class="stepcard"><small>第一步</small><h3>這句話是不是在提需求？</h3>
+      <ul class="kinds">
+        <li><b>是需求</b><span>往第二步</span></li>
+        <li><b>客套話</b><span>謝謝、好、收到。簡短回一句</span></li>
+        <li><b>跟診所無關</b><span>說明這個幫不上，不硬接成約診</span></li>
+      </ul>
+      <p>句子裡只要有牙齒、症狀或約診相關的字，就不會被當成無關。寧可多回一句，不漏掉真的患者。</p></div>
+    <div class="stepcard"><small>第二步</small><h3>是哪一種？帶了哪些條件？</h3>
+      <ul class="chips misc"><li>約診</li><li>改期</li><li>取消</li><li>查可以約的時間</li><li>查自己的約診</li><li>問診所資訊</li><li>其他</li></ul>
+      <p>條件是日期、時段、醫師、項目。句子裡有的先收下來，沒有的之後再問。「下週三」「這個週末」「月底」「越快越好」這類說法會換算成實際的日期。</p></div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">規則</div>
+    <h2><span class="nb">有把握才動作，</span><span class="nb">沒把握就問，再不行找櫃檯</span></h2>
+    <p>診所最擔心的是機器人亂回、亂約。下面是它實際的做法，每一條都是寫在程式裡的規則。</p>
+  </div>
+  <div class="tablewrap"><table class="rules">
+    <thead><tr><th>患者說，或發生了什麼</th><th>它怎麼做</th></tr></thead>
+    <tbody>
+    <tr><th>「我想約洗牙」</th><td>進約診，一次只問一件還缺的事：哪一天、哪個時段、哪位醫師。</td></tr>
+    <tr><th>時間選好了</th><td>先給一張核對卡，寫明醫師、日期、時間、項目。患者按了確認才成立。</td></tr>
+    <tr><th>聽起來像改期，也像取消</th><td>不猜。問「想跟您確認一下，您是想要：」，給兩個選項，加一個「都不是」。</td></tr>
+    <tr><th>問了兩次還是對不上</th><td>通知櫃檯，請患者稍候。</td></tr>
+    <tr><th>「謝謝」「好」「收到」</th><td>簡短回一句，不進任何流程。短時間內又說同一類的話，只回更短的一句。</td></tr>
+    <tr><th>約到一半問「你們地址在哪」</th><td>先回答地址，再問要不要繼續剛才的約診。</td></tr>
+    <tr><th>「我牙齦腫起來很痛」</th><td>請患者直接來電，同時通知櫃檯。</td></tr>
+    <tr><th>「我要幫我媽媽約」</th><td>交給櫃檯。一個 LINE 帳號只約本人。</td></tr>
+    <tr><th>約診沒有寫成功</th><td>不說「約好了」。告訴患者沒成功，通知櫃檯協助。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="funnel wide" role="img" aria-label="患者的訊息先給超好約處理，處理不了的才到櫃檯">
+    <div class="lv l1"><b>患者傳來的每一則訊息</b><span>打字，或按選單與卡片上的按鈕</span></div>
+    <div class="arrow">↓ 先判斷</div>
+    <div class="lv l2"><b>超好約處理完</b><span>約診、改期、取消、查約診、診所的電話地址與看診時間</span></div>
+    <div class="arrow">↓ 沒把握的、不該由它回的</div>
+    <div class="lv l3"><b>櫃檯</b><span>病情、費用的細節、替家人約、急症</span></div>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">回覆</div>
+    <h2><span class="nb">回給患者的每一句，</span><span class="nb">都是事先寫好的</span></h2>
+    <p>一般的 AI 聊天機器人是當場組句子，有時會說出診所沒說過的話。超好約不這樣做。</p>
+  </div>
+  <div class="feat c3">
+    <div class="stepcard"><h3>文案與卡片是固定的</h3><p>它回的文字、按鈕、核對卡，都是事先寫好、可以逐句檢查的。客套話也是，依診所選的語氣挑一句，不是當場生成。</p></div>
+    <div class="stepcard"><h3>只說真的發生的事</h3><p>接手紀錄建立了，才說「已經轉給櫃檯」。舊的約沒取消成功，就不說改期完成。</p></div>
+    <div class="stepcard"><h3>不回答病情</h3><p>要不要拔、該吃什麼藥，這類問題它不回答，會通知櫃檯。</p></div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">它會看錯</div>
+    <h2>所以每一步都留了退路</h2>
+    <p>判斷模型不是百分之百正確。下面這些設計，是為了讓它看錯的時候不會造成約錯。</p>
+  </div>
+  <div class="feat c3">
+    <div class="stepcard"><h3>約之前一定有核對卡</h3><p>寫明醫師、日期、時間、項目，患者按了確認才成立。判斷錯了，會停在這一步。</p></div>
+    <div class="stepcard"><h3>隨時可以退出</h3><p>約到一半打「算了」或「重來」，流程就結束，不會留下半筆約。</p></div>
+    <div class="stepcard"><h3>隨時可以找人</h3><p>打「找櫃檯」或按選單上的「聯絡診所」，就會通知櫃檯。</p></div>
+    <div class="stepcard"><h3>急症不看把握</h3><p>臉腫、血流不止這類字眼，規則寫死：請患者直接來電，同時通知櫃檯。</p></div>
+    <div class="stepcard"><h3>櫃檯接手就安靜</h3><p>櫃檯在訊息介面按了接手，它就不回這位患者打的字，直到交還。</p></div>
+    <div class="stepcard"><h3>對話會過期</h3><p>三十分鐘沒有動作，下一句話當成新的對話，不會接著舊的流程做下去。</p></div>
+  </div>
+</div></section>
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">換版之前</div>
+    <h2>每次更新模型，先過幾份固定的檢查</h2>
+  </div>
+  <div class="feat c3">
+    <div class="stepcard"><h3>固定的句子</h3><p>一批固定的句子：該當成需求的、該當成客套話的、該當成無關的，分得對不對。</p></div>
+    <div class="stepcard"><h3>沒看過的句子</h3><p>沒有進過訓練的句子，看它在陌生的說法上表現如何。</p></div>
+    <div class="stepcard"><h3>大量無關的句子</h3><p>一大批跟約診無關的句子，數有多少被誤當成需求。</p></div>
+  </div>
+</div></section>
+<section class="block"><div class="wrap"><nav class="pager" aria-label="上一頁與下一頁"><span></span><a class="pg next" href="/chaohaoyue/patients/"><small>下一頁</small><b>患者端</b></a></nav></div></section>
+</main>
+<footer class="site"><div class="wrap">
+  <a href="/">© Sona Orbit</a><span class="grow"></span>
+  <a href="/chaohaoyue/security/">資料與安全</a><a href="/chaohaoyue/blog/">文章</a><a href="/chaohaoyue/support/">常見問題</a><a href="/chaohaoyue/privacy/">隱私權</a><a href="mailto:sona.orbit.hi@gmail.com">sona.orbit.hi@gmail.com</a>
+</div></footer>
+</body>
+</html>

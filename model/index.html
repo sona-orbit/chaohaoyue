@@ -32,7 +32,7 @@
     <h1><span class="nb">它只負責看懂，</span><span class="nb">不自己編句子</span></h1>
     <p class="sub">超好約的中心是一個判斷模型。它是拿診所患者會說的話訓練的，只做一件事：看懂這句話要什麼。看懂之後怎麼回、下一步問什麼，是另外寫好的規則在決定，模型不參與。</p>
   </div>
-  <div><div class="parse" role="img" aria-label="一句話被拆成：想做什麼、哪一天、哪個時段、哪位醫師、什麼項目">
+  <div><div class="loop has-still"><video autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="一句話裡的詞依序被標出來，變成五個條件"><source src="/chaohaoyue/assets/loop-parse.mp4" type="video/mp4"></video><div class="loop-still"><div class="parse" role="img" aria-label="一句話被拆成：想做什麼、哪一天、哪個時段、哪位醫師、什麼項目">
   <div class="said"><small>患者打的一句話</small>
     <p>我想<mark class="k1">約</mark><mark class="k2">下週三</mark><mark class="k3">下午</mark>，找<mark class="k4">陳醫師</mark><mark class="k5">洗牙</mark></p></div>
   <div class="arrow">↓ 判斷模型看懂的</div>
@@ -45,7 +45,7 @@
   </dl>
   <div class="arrow">↓ 接下來</div>
   <div class="next">條件都有了，列出那天下午陳醫師可以約的時間。少了哪一樣，就只問那一樣。</div>
-</div></div>
+</div></div></div><p class="cap">一句話怎麼被拆成五個條件。取自導覽片，沒有聲音。</p></div>
 </div></section>
 <section class="block soft"><div class="wrap">
   <div class="txt lead">
@@ -71,6 +71,7 @@
     <h2><span class="nb">有把握才動作，</span><span class="nb">沒把握就問，再不行找櫃檯</span></h2>
     <p>診所最擔心的是機器人亂回、亂約。下面是它實際的做法，每一條都是寫在程式裡的規則。</p>
   </div>
+  <div class="loopfig"><div class="loop"><video autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="三張卡依序出現：約之前先給核對卡、聽不出來就先問、不該由它回的交給櫃檯"><source src="/chaohaoyue/assets/loop-rules.mp4" type="video/mp4"></video></div><p class="cap">三條規則走一遍。取自導覽片，沒有聲音。</p></div>
   <div class="tablewrap"><table class="rules">
     <thead><tr><th>患者說，或發生了什麼</th><th>它怎麼做</th></tr></thead>
     <tbody>

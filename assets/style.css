@@ -216,6 +216,10 @@ footer.site .grow { flex: 1; }
 .stat p { font-size: .9375rem; color: var(--ink); line-height: 1.6; }
 .stat small { display: block; margin-top: .35rem; font-size: .8125rem; color: var(--ink-2); }
 .chips.warm li { background: var(--sand); color: var(--warn); }
+.stat + .stat { margin-top: .6rem; }
+.stepcard small.src { display: block; margin-top: .4rem; letter-spacing: 0; font-weight: 400; color: var(--ink-2); font-size: .8125rem; }
+.stepcard.wide { grid-column: 1 / -1; }
+.aside.center { text-align: center; margin-inline: auto; }
 .two + .two { margin-top: 1rem; }
 .txt.lead { max-width: 46rem; }
 .two, .trio { display: grid; gap: 1rem; margin-top: 1.75rem; }

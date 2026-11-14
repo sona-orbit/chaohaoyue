@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="text-scale" content="scale">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f8f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121a19" media="(prefers-color-scheme: dark)">
+<title>超好約｜診所的 LINE 約診</title>
+<meta name="description" content="診所用的 LINE 約診服務。患者在診所的 LINE 官方帳號上約診、改期、查約診，櫃檯在電腦上管理約診與回覆訊息。">
+<link rel="canonical" href="https://sona-orbit.github.io/chaohaoyue/">
+<meta property="og:title" content="超好約｜診所的 LINE 約診">
+<meta property="og:description" content="診所用的 LINE 約診服務。患者在診所的 LINE 官方帳號上約診、改期、查約診，櫃檯在電腦上管理約診與回覆訊息。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sona-orbit.github.io/chaohaoyue/">
+<meta property="og:image" content="https://sona-orbit.github.io/chaohaoyue/assets/intro-poster.jpg">
+<link rel="icon" href="/chaohaoyue/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/chaohaoyue/assets/style.css">
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/chaohaoyue/*"},{"not":{"selector_matches":"[download],[target=_blank],.no-prerender"}}]},"eagerness":"moderate"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJGRNJFB15"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-FJGRNJFB15");</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "超好約", "description": "診所用的 LINE 約診服務。患者在診所的 LINE 官方帳號上約診、改期、查約診，櫃檯在電腦上管理約診與回覆訊息。", "operatingSystem": "macOS, Windows", "applicationCategory": "BusinessApplication", "url": "https://sona-orbit.github.io/chaohaoyue/", "author": {"@type": "Organization", "name": "Sona Orbit", "url": "https://sona-orbit.github.io/"}}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/chaohaoyue/"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></i>超好約</a>
+  <nav class="top" aria-label="主選單"><a class="opt" href="/chaohaoyue/#core">怎麼判斷</a><a href="/chaohaoyue/#start">怎麼開始</a><a href="/chaohaoyue/download/">下載</a><a href="/chaohaoyue/support/">常見問題</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">診所用的 LINE 約診服務</div>
+    <h1><span class="nb">患者在 LINE 上約診，</span><span class="nb">櫃檯在電腦上管理。</span></h1>
+    <p class="sub">患者傳來的每一句話，先由一個專門為約診訓練的判斷模型看過。約診、改期、取消這些事，超好約處理完；它沒把握的，才交給櫃檯。</p>
+    <div class="cta"><a class="btn primary" href="/chaohaoyue/#core">它怎麼判斷</a><a class="btn" href="/chaohaoyue/#start">怎麼開始</a></div>
+    <ul class="facts"><li>患者不用另外裝 App</li><li>沒有診所系統也能用</li><li>櫃檯用 Mac 或 Windows</li></ul>
+  </div>
+  <div><div class="parse" role="img" aria-label="一句話被拆成：想做什麼、哪一天、哪個時段、哪位醫師、什麼項目">
+  <div class="said"><small>患者打的一句話</small>
+    <p>我想<mark class="k1">約</mark><mark class="k2">下週三</mark><mark class="k3">下午</mark>，找<mark class="k4">陳醫師</mark><mark class="k5">洗牙</mark></p></div>
+  <div class="arrow">↓ 判斷模型看懂的</div>
+  <dl class="tags">
+    <div class="k1"><dt>想做什麼</dt><dd>約診</dd></div>
+    <div class="k2"><dt>哪一天</dt><dd>下週三</dd></div>
+    <div class="k3"><dt>哪個時段</dt><dd>下午</dd></div>
+    <div class="k4"><dt>哪位醫師</dt><dd>陳醫師</dd></div>
+    <div class="k5"><dt>什麼項目</dt><dd>洗牙</dd></div>
+  </dl>
+  <div class="arrow">↓ 接下來</div>
+  <div class="next">條件都有了，列出那天下午陳醫師可以約的時間。少了哪一樣，就只問那一樣。</div>
+</div></div>
+</div></section>
+
+<section class="block soft" id="video"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">一分多鐘看懂</div>
+    <h2>先看影片也可以</h2>
+    <p>一句話怎麼被看懂、它什麼時候動作、什麼時候交給櫃檯，影片裡走一遍。有字幕，關掉聲音也看得懂。</p>
+  </div>
+  <div class="video"><video controls preload="none" playsinline poster="/chaohaoyue/assets/intro-poster.jpg" width="1920" height="1080">
+    <source src="/chaohaoyue/assets/intro.mp4" type="video/mp4"></video></div>
+  
+</div></section>
+
+<section class="block" id="core"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">核心 1</div>
+    <h2><span class="nb">它只負責看懂，</span><span class="nb">不自己編句子</span></h2>
+    <p>超好約的中心是一個判斷模型。它是拿診所患者會說的話訓練的，只會做一件事：看懂這句話要什麼。看懂之後怎麼回、下一步問什麼，是另外寫好的規則在決定，模型不參與。</p>
+  </div>
+  <div class="two">
+    <div class="stepcard"><small>第一步</small><h3>這句話是不是在提需求？</h3>
+      <ul class="kinds">
+        <li><b>是需求</b><span>往第二步</span></li>
+        <li><b>客套話</b><span>謝謝、好、收到。簡短回一句</span></li>
+        <li><b>跟診所無關</b><span>說明這個幫不上，不硬接成約診</span></li>
+      </ul></div>
+    <div class="stepcard"><small>第二步</small><h3>是哪一種？帶了哪些條件？</h3>
+      <ul class="chips"><li>約診</li><li>改期</li><li>取消</li><li>查可以約的時間</li><li>查自己的約診</li><li>問診所資訊</li><li>其他</li></ul>
+      <p>條件是日期、時段、醫師、項目。句子裡有的先收下來，沒有的之後再問。</p></div>
+  </div>
+</div></section>
+
+<section class="block soft"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">核心 2</div>
+    <h2><span class="nb">有把握才動作，</span><span class="nb">沒把握就問，再不行找櫃檯</span></h2>
+    <p>診所最擔心的是機器人亂回、亂約。下面是它實際的做法，每一條都是寫在程式裡的規則。</p>
+  </div>
+  <div class="tablewrap"><table class="rules">
+    <thead><tr><th>患者說，或發生了什麼</th><th>它怎麼做</th></tr></thead>
+    <tbody>
+    <tr><th>「我想約洗牙」</th><td>進約診，一次只問一件還缺的事：哪一天、哪個時段、哪位醫師。</td></tr>
+    <tr><th>時間選好了</th><td>先給一張核對卡，寫明醫師、日期、時間、項目。患者按了確認才成立。</td></tr>
+    <tr><th>聽起來像改期，也像取消</th><td>不猜。問「想跟您確認一下，您是想要：」，給兩個選項，加一個「都不是」。</td></tr>
+    <tr><th>問了兩次還是對不上</th><td>通知櫃檯，請患者稍候。</td></tr>
+    <tr><th>「謝謝」「好」「收到」</th><td>簡短回一句，不進任何流程。短時間內又說同一類的話，只回更短的一句。</td></tr>
+    <tr><th>約到一半問「你們地址在哪」</th><td>先回答地址，再問要不要繼續剛才的約診。</td></tr>
+    <tr><th>「我牙齦腫起來很痛」</th><td>請患者直接來電，同時通知櫃檯。</td></tr>
+    <tr><th>「我要幫我媽媽約」</th><td>交給櫃檯。一個 LINE 帳號只約本人。</td></tr>
+    <tr><th>約診沒有寫成功</th><td>不說「約好了」。告訴患者沒成功，通知櫃檯協助。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="funnel wide" role="img" aria-label="患者的訊息先給超好約處理，處理不了的才到櫃檯">
+    <div class="lv l1"><b>患者傳來的每一則訊息</b><span>打字，或按選單與卡片上的按鈕</span></div>
+    <div class="arrow">↓ 先判斷</div>
+    <div class="lv l2"><b>超好約處理完</b><span>約診、改期、取消、查約診、診所的電話地址與看診時間</span></div>
+    <div class="arrow">↓ 沒把握的、不該由它回的</div>
+    <div class="lv l3"><b>櫃檯</b><span>病情、費用的細節、替家人約、急症</span></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">核心 3</div>
+    <h2><span class="nb">回給患者的每一句，</span><span class="nb">都是事先寫好的</span></h2>
+    <p>一般的 AI 聊天機器人是當場組句子，有時會說出診所沒說過的話。超好約不這樣做。</p>
+  </div>
+  <div class="trio">
+    <div class="stepcard"><h3>文案與卡片是固定的</h3><p>它回的文字、按鈕、核對卡，都是事先寫好、可以逐句檢查的。客套話也是，依診所選的語氣挑一句，不是當場生成。</p></div>
+    <div class="stepcard"><h3>只說真的發生的事</h3><p>接手紀錄建立了，才說「已經轉給櫃檯」。舊的約沒取消成功，就不說改期完成。</p></div>
+    <div class="stepcard"><h3>不回答病情</h3><p>要不要拔、該吃什麼藥，這類問題它不回答，會通知櫃檯。</p></div>
+  </div>
+</div></section>
+
+<section class="block soft" id="how"><div class="wrap split">
+  <div class="txt">
+    <div class="kicker">患者這一邊</div>
+    <h2><span class="nb">第一次填資料，</span><span class="nb">之後選項目、選時間</span></h2>
+    <p>第一次使用時，患者在 LINE 裡填姓名、手機、身分證字號與生日。之後點選單上的「線上預約」，或直接打字，例如「我想約下週三下午洗牙」。</p>
+    <p>改期、取消、查自己的約診、問診所的電話與看診時間，都在同一個對話裡。</p>
+    <ul class="pills" aria-label="這些時候用得到">
+      <li>下班後患者想約診</li><li>患者臨時要改時間</li><li>櫃檯正在接電話</li><li>新患者第一次來</li>
+    </ul>
+  </div>
+  <div><div class="phone" role="img" aria-label="手機上，患者在診所的 LINE 官方帳號裡選要約的項目">
+  <div class="screen">
+    <div class="bar"><i></i>示範牙醫診所</div>
+    <div class="chat">
+      <div class="b me">我想約洗牙</div>
+      <div class="card"><div class="hd">示範牙醫診所<small>可以約的時間</small></div>
+        <div class="bd">洗牙，想約哪一個時間？</div>
+        <div class="opts"><span>11/20（五）14:30</span><span>11/20（五）16:00</span><span>11/21（六）10:00</span><span>看其他時間</span></div></div>
+      <div class="b me">11/20（五）14:30</div>
+      <div class="card"><div class="hd">約好了<small>示範牙醫診所</small></div>
+        <div class="row"><b>時間</b>11/20（五）14:30</div><div class="row"><b>項目</b>洗牙</div><div class="row"><b>醫師</b>陳醫師</div>
+        <div class="opts"><span>改時間</span></div></div>
+    </div>
+    <div class="menu"><span>線上預約</span><span>我的預約</span><span>診所資訊</span><span>聯絡診所</span></div>
+  </div>
+</div><p class="cap">患者打一句「我想約洗牙」，選時間就約好了。畫面是示意。</p></div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">櫃檯這一邊</div>
+    <h2>兩個畫面：預約與訊息</h2>
+    <p>預約介面看一週的約診，確認或婉拒患者送來的約，也可以替患者約診；醫師的班表、看診項目、診所的電話與地址在這裡設定。訊息介面的左邊是 LINE 官方帳號原本的聊天頁，右邊多一塊面板，顯示現在點開的是哪位患者、他有哪些約診。要自己回的時候按「接手」，超好約就不會跟著回。</p>
+  </div>
+  <div class="shots2">
+    <div><div class="shot"><img src="/chaohaoyue/assets/booking-calendar.webp" width="1400" height="1094" alt="預約介面的一週行事曆，每一格是一筆約診，寫著時間、患者、項目與醫師" loading="lazy" decoding="async"></div>
+      <p class="cap">預約介面。資料是示範用的。</p></div>
+    <div><div class="shot crop"><img src="/chaohaoyue/assets/message-panel.webp" width="720" height="1368" alt="訊息介面右邊的面板：誰在找櫃檯、這位患者的資料、接手按鈕與約診" loading="lazy" decoding="async"></div>
+      <p class="cap">訊息介面右邊的面板。資料是示範用的。</p></div>
+  </div>
+</div></section>
+
+<section class="block soft" id="start"><div class="wrap center">
+  <div class="kicker">怎麼開始</div>
+  <h2><span class="nb">從申請到能用，</span><span class="nb">要做這五件事</span></h2>
+  <ol class="steps">
+    <li><b>準備 LINE 官方帳號</b>診所已經有的直接用，沒有的先申請。</li>
+    <li><b>跟我們聯絡</b>我們把官方帳號接上超好約，套用聊天畫面下方的選單。</li>
+    <li><b>裝連線程式</b>我們到診所或遠端，在櫃檯的電腦上裝好並完成配對。</li>
+    <li><b>下載櫃檯用的程式</b>填好醫師、班表與看診項目。</li>
+    <li><b>告訴患者</b>請患者加診所的 LINE，就可以開始約診。</li>
+  </ol>
+</div></section>
+
+<section class="block" id="spec"><div class="wrap">
+  <div class="kicker">基本資料</div>
+  <h2>需要什麼、有什麼限制</h2>
+  <table class="spec">
+    <tr><th>患者端</th><td>LINE。不用另外裝 App，也不用另外註冊帳號。</td></tr>
+    <tr><th>櫃檯端</th><td>Mac、Windows（Windows 版準備中）。</td></tr>
+    <tr><th>診所要準備</th><td>LINE 官方帳號、一台能上網的電腦。</td></tr>
+    <tr><th>診所系統</th><td>沒有也能用，約診以這裡的為準。已經有診所系統的，之後可以把患者對起來。</td></tr>
+    <tr><th>資料存在哪</th><td>約診與患者資料只有一份，存在雲端；身分資料與訊息內容加密，每家診所分開。櫃檯的電腦上不存。</td></tr>
+    <tr><th>費用</th><td>請來信詢問：sona.orbit.hi@gmail.com</td></tr>
+  </table>
+  <ul class="limits">
+    <li>目前只做診所，接的管道只有 LINE。</li>
+    <li>一個 LINE 帳號只能約本人。替家人約診請找櫃檯。</li>
+    <li>判斷模型會看錯。所以約之前一定有核對卡，患者隨時可以說「算了」，也可以打「找櫃檯」。</li>
+    <li>診所確認、婉拒或改期之後，目前要由櫃檯在 LINE 上告訴患者；自動通知與看診前一天的提醒還在做。</li>
+    <li>LINE 主動發送訊息要算則數，由診所的 LINE 官方帳號方案負擔。患者先傳訊息、我們回覆的不算。</li>
+  </ul>
+</div></section>
+</main>
+<footer class="site"><div class="wrap">
+  <a href="/">© Sona Orbit</a><span class="grow"></span>
+  <a href="/chaohaoyue/blog/">文章</a><a href="/chaohaoyue/support/">常見問題</a><a href="/chaohaoyue/privacy/">隱私權</a><a href="mailto:sona.orbit.hi@gmail.com">sona.orbit.hi@gmail.com</a>
+</div></footer>
+</body>
+</html>

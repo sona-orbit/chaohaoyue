@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="text-scale" content="scale">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f8f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121a19" media="(prefers-color-scheme: dark)">
+<title>診所的 LINE 約診機器人，什麼時候不該回話｜超好約</title>
+<meta name="description" content="患者說「謝謝」它也回、亂講話它也接，是約診機器人常見的問題。這篇寫超好約怎麼處理：先判斷是不是需求、有把握才動作、不該由它回的交給櫃檯。">
+<link rel="canonical" href="https://sona-orbit.github.io/chaohaoyue/blog/when-a-clinic-line-bot-should-not-reply/">
+<meta property="og:title" content="診所的 LINE 約診機器人，什麼時候不該回話｜超好約">
+<meta property="og:description" content="患者說「謝謝」它也回、亂講話它也接，是約診機器人常見的問題。這篇寫超好約怎麼處理：先判斷是不是需求、有把握才動作、不該由它回的交給櫃檯。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sona-orbit.github.io/chaohaoyue/blog/when-a-clinic-line-bot-should-not-reply/">
+<meta property="og:image" content="https://sona-orbit.github.io/chaohaoyue/assets/intro-poster.jpg">
+<link rel="icon" href="/chaohaoyue/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/chaohaoyue/assets/style.css">
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/chaohaoyue/*"},{"not":{"selector_matches":"[download],[target=_blank],.no-prerender"}}]},"eagerness":"moderate"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJGRNJFB15"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-FJGRNJFB15");</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "診所的 LINE 約診機器人，什麼時候不該回話", "description": "患者說「謝謝」它也回、亂講話它也接，是約診機器人常見的問題。這篇寫超好約怎麼處理：先判斷是不是需求、有把握才動作、不該由它回的交給櫃檯。", "datePublished": "2026-11-14", "inLanguage": "zh-Hant", "mainEntityOfPage": "https://sona-orbit.github.io/chaohaoyue/blog/when-a-clinic-line-bot-should-not-reply/", "author": {"@type": "Organization", "name": "Sona Orbit", "url": "https://sona-orbit.github.io/"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "患者亂打字，會不會被約進去？", "acceptedAnswer": {"@type": "Answer", "text": "約之前一定有核對卡，寫明醫師、日期、時間、項目，患者按了確認才成立。判斷錯了，也會停在這一步。"}}, {"@type": "Question", "name": "它會回答病情嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不會。要不要拔牙、該吃什麼藥這類問題，它不回答，會通知櫃檯。"}}, {"@type": "Question", "name": "櫃檯想自己回的時候，它會不會搶著回？", "acceptedAnswer": {"@type": "Answer", "text": "櫃檯在訊息介面按「接手」之後，它就不回這位患者打的字。回完按交還。"}}]}]</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/chaohaoyue/"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></i>超好約</a>
+  <nav class="top" aria-label="主選單"><a class="opt" href="/chaohaoyue/#core">怎麼判斷</a><a href="/chaohaoyue/#start">怎麼開始</a><a href="/chaohaoyue/download/">下載</a><a href="/chaohaoyue/support/">常見問題</a></nav>
+</div></header>
+<main><article class="wrap page blog">
+  <p class="meta"><a href="/chaohaoyue/blog/">文章</a>・2026-11-14・約 6 分鐘閱讀</p>
+  <h1><span class="nb">診所的 LINE 約診機器人，</span><span class="nb">什麼時候不該回話</span></h1>
+  <p class="intro">先講結論：約診機器人的難處不在「怎麼回」，在「怎麼知道這句話是不是在對它提需求」。我的做法是先多判斷一步，再決定要不要動作。</p>
+  <nav class="toc" aria-label="文章目錄"><b>文章目錄</b><ol><li><a href="#part-1">每一句都回，為什麼是問題</a></li><li><a href="#part-2">更麻煩的是「很有把握地錯」</a></li><li><a href="#part-3">先問：這是不是需求</a></li><li><a href="#part-4">有把握才動作</a></li><li><a href="#part-5">不能壓掉的訊息</a></li><li><a href="#part-6">我沒有採用的兩種做法</a></li><li><a href="#part-7">常見問題</a></li></ol></nav>
+
+<p class="blog-note">這篇是超好約的開發者寫的。超好約是我做的診所 LINE 約診服務，文中的做法都是它現在實際的規則。寫於 2026 年 11 月。</p>
+
+<section id="part-1"><h2>1. 每一句都回，為什麼是問題</h2>
+<p>早期的版本，患者每傳一則訊息，機器人就回一則。聽起來很合理，實際用起來有兩個問題。</p>
+<p>第一個是搶答。患者說「謝謝」，它回「不客氣」；患者說「好」，它又回一句。講三句客套話，就收到三則回覆。</p>
+<p>第二個比較嚴重：患者其實是在跟櫃檯說話，機器人卻插進來回。</p>
+</section>
+
+<section id="part-2"><h2>2. 更麻煩的是「很有把握地錯」</h2>
+<p>測試時有人打了這一句：</p>
+<blockquote>我哪一天可以去你們診所旁邊的快炒吃</blockquote>
+<p>當時的模型把它判成「查可以約的時間」，而且非常有把握。</p>
+<p>原因不難懂。那個模型被訓練成回答一個問題：「這句話是哪一種需求？」它沒有「這根本不是需求」這個選項。句子裡有「哪一天」「可以」「診所」，它就選了最像的那一種。</p>
+<p>調高信心門檻沒有用。門檻擋得住「不確定」，擋不住「確定地錯」。</p>
+</section>
+
+<section id="part-3"><h2>3. 先問：這是不是需求</h2>
+<p>所以我在判斷「是哪一種」之前，多加了一步：先把句子分成三類。</p>
+<table class="blog-table">
+<thead><tr><th>類別</th><th>例子</th><th>怎麼處理</th></tr></thead>
+<tbody>
+<tr><td>需求</td><td>我想約洗牙、明天的約可以改嗎</td><td>往下判斷是哪一種</td></tr>
+<tr><td>客套話</td><td>謝謝、好、收到、哈囉</td><td>簡短回一句，不進任何流程</td></tr>
+<tr><td>跟診所無關</td><td>快炒那一句</td><td>說明這個幫不上，不硬接成約診</td></tr>
+</tbody></table>
+<p>客套話還有一條規則：短時間內又說同一類的話，只回更短的一句。患者講了真的需求之後，這個計數才重來。</p>
+<p>判成「無關」也有保險。句子裡只要出現牙齒、症狀或約診相關的字，就不會被當成無關。寧可多回一句，不要漏掉真的患者。</p>
+</section>
+
+<section id="part-4"><h2>4. 有把握才動作</h2>
+<p>判斷是需求之後，才看它是哪一種：約診、改期、取消、查可以約的時間、查自己的約診、問診所資訊，或是其他。</p>
+<ul>
+<li>有把握，而且做得到：進流程。一次只問一件還缺的事。</li>
+<li>兩種都像：不猜，直接問患者，給兩個選項，加一個「都不是」。</li>
+<li>問了兩次還對不上：通知櫃檯，請患者稍候。</li>
+</ul>
+<div class="funnel" role="img" aria-label="一句話先判斷是不是需求，再判斷是哪一種，有把握才動作">
+  <div class="lv l1"><b>患者的一句話</b><span>先判斷：是需求、客套話，還是跟診所無關</span></div>
+  <div class="arrow">↓ 是需求</div>
+  <div class="lv l2"><b>是哪一種、帶了哪些條件</b><span>有把握就進流程；兩種都像就先問</span></div>
+  <div class="arrow">↓ 問了兩次還對不上，或不該由它回</div>
+  <div class="lv l3"><b>櫃檯</b><span>通知櫃檯，請患者稍候</span></div>
+</div>
+<p>判斷還是會錯。所以後面還有三道保險：約之前一定有核對卡；患者隨時可以打「算了」退出；隨時可以打「找櫃檯」。</p>
+</section>
+
+<section id="part-5"><h2>5. 不能壓掉的訊息</h2>
+<p>「少回一點」不能變成「看不懂就不理」。有些訊息一定要有人接：</p>
+<ul>
+<li>臉腫、血流不止這類字眼：請患者直接來電，同時通知櫃檯。</li>
+<li>替家人約診：一個 LINE 帳號只約本人，其他的交給櫃檯。</li>
+<li>約診沒有寫成功：不說「約好了」，告訴患者沒成功，通知櫃檯協助。</li>
+</ul>
+<p>這幾種不看信心高低，規則寫死。</p>
+</section>
+
+<section id="part-6"><h2>6. 我沒有採用的兩種做法</h2>
+<p><strong>只留按鈕，關掉打字。</strong>按鈕不會判錯。但會打字的患者被回一句「請用選單」，體驗更差，也等於放棄了「打一句話就能約」這件事。現在的做法是兩個都留：選單當主要入口，打字也看得懂。</p>
+<p><strong>交給一般的 AI 聊天機器人當場回。</strong>它會自己組句子，有時會說出診所沒說過的話。超好約的模型只負責看懂，回給患者的文字與卡片都是事先寫好的，可以逐句檢查。</p>
+<p>完整的規則對照表在<a href="/chaohaoyue/#core">首頁</a>。</p>
+</section>
+
+<section id="part-7"><h2>7. 常見問題</h2>
+<h3>患者亂打字，會不會被約進去？</h3>
+<p>約之前一定有核對卡，寫明醫師、日期、時間、項目，患者按了確認才成立。判斷錯了，也會停在這一步。</p>
+<h3>它會回答病情嗎？</h3>
+<p>不會。要不要拔牙、該吃什麼藥這類問題，它不回答，會通知櫃檯。</p>
+<h3>櫃檯想自己回的時候，它會不會搶著回？</h3>
+<p>櫃檯在訊息介面按「接手」之後，它就不回這位患者打的字。回完按交還。</p>
+</section>
+
+  <div class="cta-box"><b>超好約</b><p>診所用的 LINE 約診服務。</p><a class="btn primary" href="/chaohaoyue/">看它怎麼判斷</a></div>
+</article></main>
+<footer class="site"><div class="wrap">
+  <a href="/">© Sona Orbit</a><span class="grow"></span>
+  <a href="/chaohaoyue/blog/">文章</a><a href="/chaohaoyue/support/">常見問題</a><a href="/chaohaoyue/privacy/">隱私權</a><a href="mailto:sona.orbit.hi@gmail.com">sona.orbit.hi@gmail.com</a>
+</div></footer>
+</body>
+</html>

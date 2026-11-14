@@ -53,6 +53,80 @@
 </div></div>
 </div></section>
 
+<section class="block soft" id="try" data-api="https://demo-bf86e8-4qy2qsyfjq-de.a.run.app"><div class="wrap">
+  <div class="txt lead">
+    <div class="kicker">直接試</div>
+    <h2><span class="nb">打一句話，</span><span class="nb">看它怎麼判斷、花多久</span></h2>
+    <p>這裡接的是真的判斷模型，後面是一家示範診所與假的班表。每問一次都是一段新的對話，秒數是你這次實際量到的。</p>
+  </div>
+  <form class="try-form" autocomplete="off">
+    <label class="sr" for="try-q">患者會打的一句話</label>
+    <input id="try-q" type="text" maxlength="100" placeholder="例如：我想約下週三下午洗牙" enterkeyhint="send">
+    <button type="submit" class="btn primary">問</button>
+  </form>
+  <div class="try-samples" aria-label="可以直接點的例子"><button type="button">我想約下週三下午找林醫師洗牙</button><button type="button">明天的約可以改嗎</button><button type="button">你們幾點開</button><button type="button">謝謝</button><button type="button">這顆牙要不要拔</button><button type="button">我臉腫起來了</button><button type="button">我哪一天可以去診所旁邊的快炒吃</button></div>
+  <div class="try-out" aria-live="polite"><p class="try-wait">點上面的例子，或自己打一句。</p></div>
+  <p class="aside">你打的句子會送到我們的伺服器判斷，並留下紀錄用來改進（電話、身分證字號、電子郵件會先遮掉）。請不要輸入真實的個人資料。</p>
+  <noscript><p class="aside">這一段需要瀏覽器開啟 JavaScript。</p></noscript>
+</div></section>
+<script>
+(() => {
+  const box = document.getElementById('try'); if (!box) return;
+  const API = box.dataset.api, $ = (s) => box.querySelector(s);
+  const form = $('form'), input = $('input'), out = $('.try-out'), btn = $('button[type=submit]');
+  const REL = { demand: '是需求', social: '是客套話', irrelevant: '跟診所無關' };
+  const INTENT = { create_reservation: '約診', reschedule_reservation: '改期', cancel_reservation: '取消', query_available_slots: '查可以約的時間', query_my_reservations: '查自己的約診', query_clinic_info: '問診所資訊', other: '其他' };
+  const SLOT = { date: '哪一天', time_pref: '哪個時段', doctor: '哪位醫師', item: '什麼項目', target: '哪一筆' };
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const labels = (o, acc) => { if (Array.isArray(o)) o.forEach((v) => labels(v, acc)); else if (o && typeof o === 'object') { if (o.action && o.action.label) acc.push(o.action.label); Object.values(o).forEach((v) => labels(v, acc)); } return acc; };
+  let warmed = false, busy = false;
+  const warm = () => { if (warmed) return; warmed = true; fetch(API + '/api/warm', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ industry: 'dental' }) }).catch(() => {}); };
+  if ('IntersectionObserver' in window) new IntersectionObserver((es, ob) => { if (es.some((e) => e.isIntersecting)) { warm(); ob.disconnect(); } }, { rootMargin: '300px' }).observe(box); else warm();
+  const sid = () => 'site-' + Array.from(crypto.getRandomValues(new Uint8Array(9)), (b) => b.toString(16).padStart(2, '0')).join('');
+  async function ask(text) {
+    text = String(text || '').trim().slice(0, 100); if (!text || busy) return;
+    busy = true; btn.disabled = true; input.value = text;
+    out.replaceChildren(el('p', 'try-wait', '判斷中…'));
+    const t0 = performance.now();
+    try {
+      const res = await fetch(API + '/api/converse', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session: sid(), industry: 'dental', debug: true, input: { type: 'text', text } }) });
+      const sec = (performance.now() - t0) / 1000;
+      if (res.status === 429) { out.replaceChildren(el('p', 'try-wait', '問得太快了，等一下再試。')); return; }
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json(), tr = data.trace || {};
+      const frag = document.createDocumentFragment();
+      const time = el('div', 'try-time'); time.append(el('b', '', sec.toFixed(2) + ' 秒'), el('span', '', '從送出到收到回覆' + (sec > 3 ? '。判斷模型剛被叫醒，第一次會比較慢，再問一次就是平常的速度。' : '')));
+      frag.append(time);
+      const j = el('dl', 'try-judge');
+      const row = (k, v) => { const d = el('div'); d.append(el('dt', '', k), el('dd', '', v)); j.append(d); };
+      const bps = tr.bp || [];
+      // 模型說無關，但句子裡有症狀或約診的字眼：規則不讓它被擋掉（寧可多回，不漏掉真的患者）
+      const kept = tr.relevance === 'irrelevant' && !bps.includes('S_irrelevant');
+      row('這句話', kept ? '模型判成無關，但句子裡有診所相關的字眼，照規則處理' : (REL[tr.relevance] || '（沒有判斷）'));
+      if (bps.includes('F2')) row('規則', '急症的字眼：請患者來電，同時通知櫃檯');
+      if (bps.includes('A6')) row('規則', '替家人約：交給櫃檯');
+      if (!kept && (tr.relevance === 'demand' || !tr.relevance)) {
+        if (tr.intent) row('想做什麼', INTENT[tr.intent] || tr.intent);
+        for (const [k, v] of Object.entries(tr.slots || {})) if (SLOT[k] && typeof v === 'string') row(SLOT[k], v);
+      }
+      frag.append(el('h3', '', '它的判斷'), j, el('h3', '', '它回的'));
+      const chat = el('div', 'try-chat');
+      for (const m of data.messages || []) {
+        const b = el('div', 'b', m.text || m.altText || ''); chat.append(b);
+        const ls = labels(m, []).slice(0, 5);
+        if (ls.length) { const r = el('div', 'try-btns'); ls.forEach((l) => r.append(el('span', '', l))); chat.append(r); }
+      }
+      frag.append(chat);
+      out.replaceChildren(frag);
+    } catch (e) {
+      out.replaceChildren(el('p', 'try-wait', '現在連不上示範站，晚一點再試。'));
+    } finally { busy = false; btn.disabled = false; }
+  }
+  form.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
+  box.querySelectorAll('.try-samples button').forEach((b) => b.addEventListener('click', () => ask(b.textContent)));
+})();
+</script>
+
 <section class="block" id="why"><div class="wrap">
   <div class="txt lead">
     <div class="kicker">為什麼需要</div>

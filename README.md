@@ -6,4 +6,4 @@ Served by GitHub Pages at https://sona-orbit.github.io/chaohaoyue/
 
 - Home, download, support, privacy and blog pages in Traditional Chinese
 - Static HTML and CSS; this repository holds the generated pages only
-- Contact: sona.orbit.hi@gmail.com
+- Published by Sona Orbit. Issues and pull requests are turned off.
